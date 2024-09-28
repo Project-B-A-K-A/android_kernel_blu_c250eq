@@ -1,0 +1,10 @@
+#
+# Adaptive touchscreen module
+#
+
+config TOUCHSCREEN_ILITEK
+    tristate "ILITEK touchscreen driver"
+    depends on I2C || SPI_MASTER
+    help
+      Say Y here to use adaptive touchscreen driver.
+

@@ -1,0 +1,50 @@
+/ { lcds {
+	lcd_ft8006s_mipi_hd: lcd_ft8006s_mipi_hd {
+
+		sprd,dsi-work-mode = <1>;
+		sprd,dsi-lane-number = <3>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <921000>;
+		sprd,phy-escape-clock = <20000>;
+
+		sprd,width-mm = <68>;
+		sprd,height-mm = <151>;
+
+		sprd,esd-check-enable = <0>;
+		sprd,esd-check-mode = <1>;
+		sprd,esd-check-period = <1000>;
+		/*sprd,esd-check-register = <0x0A>;*/
+		/*sprd,esd-check-value = <0x9C>;*/
+
+		sprd,reset-on-sequence = <1 5>, <0 5>, <1 20>;
+		sprd,reset-off-sequence = <1 20>;
+
+		sprd,initial-command = [
+     23 96 00 02 11 00
+    23 0A 00 02 29 00
+			];
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <96000000>;
+				hactive = <720>;
+				vactive = <1600>;
+				hback-porch = <25>;
+				hfront-porch = <45>;
+				vback-porch = <105>;
+				vfront-porch = <127>;
+				hsync-len = <14>;
+				vsync-len = <8>;
+			};
+		};
+	};
+};};
